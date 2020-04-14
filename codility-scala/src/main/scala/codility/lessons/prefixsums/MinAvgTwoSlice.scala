@@ -8,11 +8,12 @@ package codility.lessons.prefixsums
 
 object MinAvgTwoSlice {
 
+  // O(n)
   def solution(a: Array[Int]): Int = {
     var minAvg = (a(0) + a(1)) / 2.0
     var minAvgPos = 0
 
-    for (i <- 0 to a.length - 3) {
+    for (i <- 0 until a.length - 2) {
       val twoAvg = (a(i) + a(i + 1)) / 2.0
       if (twoAvg < minAvg) {
         minAvg = twoAvg
