@@ -1,5 +1,7 @@
 package dcp.problems._21_40
 
+import scala.collection.mutable
+
 /**
  * This problem was asked by Google.
  *
@@ -16,9 +18,22 @@ object Problem37_PowerSet {
     @scala.annotation.tailrec
     def power(rem: List[Int], acc: Set[Set[Int]] = Set(Set.empty)): Set[Set[Int]] = rem match {
       case Nil => acc
-      case h :: t => power(t, acc + acc.map(_ + h))
+      case h :: t => power(t, acc ++ acc.map(_ + h))
     }
 
     power(in.toList)
+  }
+
+
+  def solution2(in: Set[Int]): Set[Set[Int]] = {
+    val acc = mutable.Set[Set[Int]]()
+    acc.add(Set.empty[Int])
+
+    for (num <- in) {
+      val value = acc.map(_ + num)
+      acc.addAll(value)
+    }
+
+    acc.toSet
   }
 }
