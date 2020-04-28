@@ -36,4 +36,11 @@ object Problem38_NQueens {
     }
     true
   }
+
+  /**
+   * [
+   *  [Q, f],
+   *  [f, Q]
+   * ]
+   */
 }
