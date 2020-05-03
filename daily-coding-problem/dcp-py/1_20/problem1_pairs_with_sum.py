@@ -9,14 +9,14 @@ Bonus: Can you do this in one pass?
 """
 
 
-def pairswithsum(input, k):
+def pairs_with_sum(arr, k):
     comps = set()
-    for e in input:
+    for e in arr:
         if e in comps:
             return True
         comps.add(k - e)
     return False
 
 
-assert (pairswithsum([10, 15, 3, 7], 17))  # 10 + 7
-assert (pairswithsum([12, 4, 6, 9, 15, 13, 7], 25))  # 12 + 13
+assert (pairs_with_sum([10, 15, 3, 7], 17))  # 10 + 7
+assert (pairs_with_sum([12, 4, 6, 9, 15, 13, 7], 25))  # 12 + 13
