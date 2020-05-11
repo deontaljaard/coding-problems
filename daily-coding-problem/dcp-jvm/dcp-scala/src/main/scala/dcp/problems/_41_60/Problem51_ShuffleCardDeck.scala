@@ -22,6 +22,7 @@ object Problem51_ShuffleCardDeck extends App {
   def randK(k: Int): Int = R.nextInt(k)
 
   def shuffle(cards: Array[Int]): Array[Int] = {
+
     for (currentPos <- cards.indices) {
       val newPos = currentPos + randK(NUM_CARDS - currentPos)
       val temp = cards(newPos)
@@ -32,6 +33,7 @@ object Problem51_ShuffleCardDeck extends App {
   }
 
   (0 until 10).foreach { _ =>
-    assert(CARDS.forall(shuffle(CARDS).contains))
+    val shuffledDeck = shuffle(CARDS)
+    assert(CARDS.forall(shuffledDeck.contains))
   }
 }
