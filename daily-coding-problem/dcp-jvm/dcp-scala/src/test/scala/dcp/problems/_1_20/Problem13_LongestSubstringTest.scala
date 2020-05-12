@@ -6,8 +6,9 @@ import org.scalatest.matchers.should.Matchers
 class Problem13_LongestSubstringTest extends AnyFlatSpecLike with Matchers {
 
   "LongestSubstring" should "return the longest substring" in {
-    Problem13_LongestSubstring.solution(2, "abcba") should be(3) // "bcb"
-    Problem13_LongestSubstring.solution(2, "aaabbbbcccdd") should be(7) // "aaabbbb"
+    Problem13_LongestSubstring.solution(2, "abcba") should be("bcb")
+    Problem13_LongestSubstring.solution(2, "aaabbbbcccdd") should be("aaabbbb")
+    Problem13_LongestSubstring.solution(1, "abcbbbaaaaaaaaaabbcbbadd") should be("a")
   }
 
 }

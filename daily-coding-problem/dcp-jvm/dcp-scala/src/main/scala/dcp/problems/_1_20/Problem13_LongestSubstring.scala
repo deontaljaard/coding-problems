@@ -11,20 +11,20 @@ package dcp.problems._1_20
 
 object Problem13_LongestSubstring {
 
-  def solution(k: Int, s: String): Int = {
+  def solution(k: Int, s: String): String = {
     @scala.annotation.tailrec
-    def findLongest(rem: String, acc: String = "", longest: String = ""): Int = {
-      if (rem.isEmpty) longest.length
+    def findLongest(rem: String, acc: String = "", longest: String = ""): String = {
+      if (rem.isEmpty) longest
       else {
         val count = acc.toSet.size
         val c = rem.charAt(0)
-        if (!acc.contains(c) && count < k) findLongest(rem.substring(1), acc + c, longest)
-        else if (acc.contains(c) && count <= k) findLongest(rem.substring(1), acc + c, longest)
+        if (acc.contains(c)) findLongest(rem.substring(1), acc + c, longest)
+        else if (!acc.contains(c) && count < k) findLongest(rem.substring(1), acc + c, longest)
         else findLongest(acc.substring(acc.length - 1) + rem, "", maxLen(acc, longest))
       }
     }
 
-    findLongest(s)
+    if (k > 1) findLongest(s) else s(0).toString
   }
 
   def maxLen(s1: String, s2: String): String = if (s1.length > s2.length) s1 else s2

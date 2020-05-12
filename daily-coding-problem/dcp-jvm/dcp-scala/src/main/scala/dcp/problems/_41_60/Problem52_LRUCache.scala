@@ -28,7 +28,6 @@ object Problem52_LRUCache {
       if (cache.contains(key)) {
         val node = cache(key)
         node.data = data
-        removeNode(node)
         offerNode(node)
       } else {
         if (cache.size >= n) {
