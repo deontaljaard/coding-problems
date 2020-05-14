@@ -11,9 +11,10 @@ import scala.util.Random
 
 object Problem15_RandElement extends App {
 
+  val rand = new Random()
+
   def solution(stream: LazyList[Int]): Int = {
     var randVal = 0
-    val rand = new Random()
     for (i <- stream.indices) {
       if (i == 0) randVal = i
       else if (rand.between(1, i + 1) == 1) randVal = stream(i)
