@@ -41,8 +41,7 @@ object Problem54_SudokuSolver extends App {
   private def noConflicts(grid: Array[Array[Int]], row: Int, col: Int, num: Int): Boolean =
     !usedInRow(grid, row, num) && !usedInCol(grid, col, num) && !usedInSquare(grid, row - row % 3, col - col % 3, num)
 
-  private def usedInRow(grid: Array[Array[Int]], row: Int, num: Int): Boolean =
-    grid(row).contains(num)
+  private def usedInRow(grid: Array[Array[Int]], row: Int, num: Int): Boolean = grid(row).contains(num)
 
   private def usedInCol(grid: Array[Array[Int]], col: Int, num: Int): Boolean = {
     val transposedGrid = grid.transpose
@@ -50,9 +49,7 @@ object Problem54_SudokuSolver extends App {
   }
 
   private def usedInSquare(grid: Array[Array[Int]], rowStart: Int, colStart: Int, num: Int): Boolean = {
-    val squareAsRow = Array.range(0, squareSize).flatMap { i =>
-      grid(rowStart + i).slice(colStart, colStart + squareSize)
-    }
+    val squareAsRow = Array.range(0, squareSize).flatMap { i => grid(rowStart + i).slice(colStart, colStart + squareSize) }
     squareAsRow.contains(num)
   }
 

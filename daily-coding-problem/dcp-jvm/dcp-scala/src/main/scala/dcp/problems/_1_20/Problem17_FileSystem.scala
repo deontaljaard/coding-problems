@@ -86,9 +86,4 @@ object Problem17_FileSystem {
     value.length
   }
 
-  def main(args: Array[String]): Unit = {
-    val fs = "dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext"
-    val fs2 = "dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext"
-    println(parse(fs2))
-  }
 }
